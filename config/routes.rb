@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/helloworld', to: 'pages#helloworld'
+  get 'pages/helloworld'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
