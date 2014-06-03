@@ -44,6 +44,9 @@ group :development, :test do
   gem 'capybara'
 end
 
+gem 'bootstrap-sass'
+gem 'bootstrap-generators', '~> 3.1.1'
+
 
 
 # Use ActiveModel has_secure_password
