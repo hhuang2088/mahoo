@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 feature 'User wants greeting' do
   scenario 'says Hello World' do
