@@ -19,4 +19,10 @@ What does bundle install actaully do?
 	- It reads through the Gemfile and checks to see if the computer already has the gems listed. If there are any that don't, it will download and install the gems.
 Why do we use Postgres instead of sqlite3?
 	- We use Postgres instead of Sqlite3 because Postgres creates interacts with databases, as opposed to creating a self-contained representation of databases.  
+Explain what you accomplished in this lesson
+	- In this lesson, we implemented bootstrap, and used it to create a navbar.
+What is bootstrap?
+	-Bootstrap is a CSS library that comes with predefined classes fitted with pre-rendered CSS.
+What is responsive design?
+	Responsive design helps keep content presentable in the way the developers want across different browsers and media. 
 
