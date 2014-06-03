@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :things
+
   get '/helloworld', to: 'pages#helloworld'
   get 'pages/helloworld'
 
