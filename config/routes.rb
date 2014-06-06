@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :things
   root 'pages#helloworld'
-
   get '/helloworld', to: 'pages#helloworld'
-  get 'pages/helloworld'
+  get '/my_things', to: 'things#my_things'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

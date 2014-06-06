@@ -8,6 +8,10 @@ class ThingsController < ApplicationController
     @things = Thing.all
   end
 
+  def my_things 
+    @things = current_user.things.all 
+  end
+
   # GET /things/1
   # GET /things/1.json
   def show
@@ -15,17 +19,18 @@ class ThingsController < ApplicationController
 
   # GET /things/new
   def new
-    @thing = Thing.new
+    @thing = current_user.things.new
   end
 
   # GET /things/1/edit
   def edit
+    check_user
   end
 
   # POST /things
   # POST /things.json
   def create
-    @thing = Thing.new(thing_params)
+    @thing = current_user.things.new(thing_params)
 
     respond_to do |format|
       if @thing.save
@@ -54,13 +59,14 @@ class ThingsController < ApplicationController
 
   # DELETE /things/1
   # DELETE /things/1.json
-  # def destroy
-  #   @thing.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to things_url, notice: 'Thing was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    check_user
+    @thing.destroy
+    respond_to do |format|
+      format.html { redirect_to things_url, notice: 'Thing was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -72,4 +78,11 @@ class ThingsController < ApplicationController
     def thing_params
       params.require(:thing).permit(:name, :description)
     end
+
+    def check_user 
+      if current_user.id != @thing.user_id 
+        flash[:info] = "I cannot let you do that "
+        redirect_to things_path
+      end
+    end 
 end
